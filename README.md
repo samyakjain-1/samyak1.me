@@ -1,10 +1,10 @@
 # 🚀 Samyak's React Website
 
-A sleek personal website built with **React**, **Vite**, and **TypeScript**, deployed via **GitHub Pages**.
+My personal website built with **React**, **Vite**, and **TypeScript**, deployed via **GitHub Pages**.
 
 ## 🔗 Live Demo
 
-Check it out here: [https://samyakjain-1.github.io/react-website](https://samyakjain-1.github.io/react-website)
+Check it out here: [https://samyak1.me](https://samyak1.me)
 
 ## 📦 Tech Stack
 
