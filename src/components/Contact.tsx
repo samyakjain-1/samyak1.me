@@ -58,7 +58,7 @@ const ScrollToTop = styled(motion.button)`
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: ${props => props.theme === 'dark' ? 'transparent' : '#FFFFFF'};
+  background: none;
   border: none;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
   cursor: pointer;
@@ -66,17 +66,17 @@ const ScrollToTop = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: ${props => props.theme === 'dark' ? 'none' : '0 2px 4px rgba(45, 51, 72, 0.08)'};
-  border-radius: 50%;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #91a1d1;
+    background-color: ${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.1)' : 'rgba(74, 86, 128, 0.1)'};
+  }
 
   svg {
     width: 24px;
     height: 24px;
-  }
-
-  &:hover {
-    color: #91a1d1;
-    box-shadow: ${props => props.theme === 'dark' ? 'none' : '0 4px 8px rgba(45, 51, 72, 0.12)'};
   }
 `;
 
