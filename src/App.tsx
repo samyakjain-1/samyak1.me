@@ -11,6 +11,10 @@ import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
 const GlobalWrapper = styled.div`
   background-color: ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'};
+  background-image: linear-gradient(${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.03)' : 'rgba(74, 86, 128, 0.03)'} 1px, transparent 1px),
+                    linear-gradient(90deg, ${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.03)' : 'rgba(74, 86, 128, 0.03)'} 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center center;
   min-height: 100vh;
   width: 100%;
   position: fixed;
