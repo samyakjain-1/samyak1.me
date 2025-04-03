@@ -358,6 +358,13 @@ Error generating stack: `+o.message+`
   cursor: pointer;
   z-index: 20;
   padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #91a1d1;
+    background-color: ${e=>e.theme==="dark"?"rgba(204, 205, 250, 0.1)":"rgba(74, 86, 128, 0.1)"};
+  }
 
   @media (min-width: 640px) {
     display: none;
