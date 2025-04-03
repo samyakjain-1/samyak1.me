@@ -393,7 +393,7 @@ object-assign
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -4px;
+    bottom: 0.3rem;
     left: 0.5rem;
     background-color: #91a1d1;
     transition: width 0.3s ease;
