@@ -11,5 +11,5 @@ Check it out here: [https://samyak1.me](https://samyak1.me)
 - ⚛️ React
 - ⚡ Vite
 - 🟦 TypeScript
-- 🎨 CSS Modules (or Tailwind, if you’re using it)
+- 🎨 Tailwind CSS
 - 🚀 Deployed with GitHub Pages
