@@ -273,7 +273,7 @@ Error generating stack: `+o.message+`
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: ${e=>e.theme==="dark"?"transparent":"#FFFFFF"};
+  background: none;
   border: none;
   color: ${e=>e.theme==="dark"?"#CCCDFA":"#4A5680"};
   cursor: pointer;
@@ -281,17 +281,17 @@ Error generating stack: `+o.message+`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: ${e=>e.theme==="dark"?"none":"0 2px 4px rgba(45, 51, 72, 0.08)"};
-  border-radius: 50%;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #91a1d1;
+    background-color: ${e=>e.theme==="dark"?"rgba(204, 205, 250, 0.1)":"rgba(74, 86, 128, 0.1)"};
+  }
 
   svg {
     width: 24px;
     height: 24px;
-  }
-
-  &:hover {
-    color: #91a1d1;
-    box-shadow: ${e=>e.theme==="dark"?"none":"0 4px 8px rgba(45, 51, 72, 0.12)"};
   }
 `,AC=()=>{const{theme:e}=vs(),t=()=>{window.scrollTo({top:0,behavior:"smooth"})};return D.jsxs(SC,{id:"contact",children:[D.jsx(kC,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5},children:"CONTACT"}),D.jsx(CC,{theme:e,href:"mailto:samyakjain2575@gmail.com",whileHover:{scale:1.05},whileTap:{scale:.95},children:"email me"}),D.jsxs(PC,{children:[D.jsxs(TC,{theme:e,children:["Made by Samyak Jain ","❤️"]}),D.jsx(EC,{theme:e,onClick:t,whileHover:{scale:1.1},whileTap:{scale:.95},children:D.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round",children:D.jsx("path",{d:"M18 15l-6-6-6 6"})})})]})]})};var bg={color:void 0,size:void 0,className:void 0,style:void 0,attr:void 0},zd=Ft.createContext&&Ft.createContext(bg),DC=["attr","size","title"];function MC(e,t){if(e==null)return{};var n=RC(e,t),r,i;if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);for(i=0;i<o.length;i++)r=o[i],!(t.indexOf(r)>=0)&&Object.prototype.propertyIsEnumerable.call(e,r)&&(n[r]=e[r])}return n}function RC(e,t){if(e==null)return{};var n={};for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){if(t.indexOf(r)>=0)continue;n[r]=e[r]}return n}function Ko(){return Ko=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},Ko.apply(this,arguments)}function Bd(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(i){return Object.getOwnPropertyDescriptor(e,i).enumerable})),n.push.apply(n,r)}return n}function Go(e){for(var t=1;t<arguments.length;t++){var n=arguments[t]!=null?arguments[t]:{};t%2?Bd(Object(n),!0).forEach(function(r){LC(e,r,n[r])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):Bd(Object(n)).forEach(function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(n,r))})}return e}function LC(e,t,n){return t=_C(t),t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _C(e){var t=VC(e,"string");return typeof t=="symbol"?t:t+""}function VC(e,t){if(typeof e!="object"||!e)return e;var n=e[Symbol.toPrimitive];if(n!==void 0){var r=n.call(e,t);if(typeof r!="object")return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return(t==="string"?String:Number)(e)}function Kg(e){return e&&e.map((t,n)=>Ft.createElement(t.tag,Go({key:n},t.attr),Kg(t.child)))}function ws(e){return t=>Ft.createElement(jC,Ko({attr:Go({},e.attr)},t),Kg(e.child))}function jC(e){var t=n=>{var{attr:r,size:i,title:o}=e,s=MC(e,DC),a=i||n.size||"1em",l;return n.className&&(l=n.className),e.className&&(l=(l?l+" ":"")+e.className),Ft.createElement("svg",Ko({stroke:"currentColor",fill:"currentColor",strokeWidth:"0"},n.attr,r,s,{className:l,style:Go(Go({color:e.color||n.color},n.style),e.style),height:a,width:a,xmlns:"http://www.w3.org/2000/svg"}),o&&Ft.createElement("title",null,o),e.children)};return zd!==void 0?Ft.createElement(zd.Consumer,null,n=>t(n)):t(bg)}function OC(e){return ws({attr:{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"},child:[{tag:"line",attr:{x1:"3",y1:"12",x2:"21",y2:"12"},child:[]},{tag:"line",attr:{x1:"3",y1:"6",x2:"21",y2:"6"},child:[]},{tag:"line",attr:{x1:"3",y1:"18",x2:"21",y2:"18"},child:[]}]})(e)}function FC(e){return ws({attr:{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"},child:[{tag:"path",attr:{d:"M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"},child:[]}]})(e)}function NC(e){return ws({attr:{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"},child:[{tag:"circle",attr:{cx:"12",cy:"12",r:"5"},child:[]},{tag:"line",attr:{x1:"12",y1:"1",x2:"12",y2:"3"},child:[]},{tag:"line",attr:{x1:"12",y1:"21",x2:"12",y2:"23"},child:[]},{tag:"line",attr:{x1:"4.22",y1:"4.22",x2:"5.64",y2:"5.64"},child:[]},{tag:"line",attr:{x1:"18.36",y1:"18.36",x2:"19.78",y2:"19.78"},child:[]},{tag:"line",attr:{x1:"1",y1:"12",x2:"3",y2:"12"},child:[]},{tag:"line",attr:{x1:"21",y1:"12",x2:"23",y2:"12"},child:[]},{tag:"line",attr:{x1:"4.22",y1:"19.78",x2:"5.64",y2:"18.36"},child:[]},{tag:"line",attr:{x1:"18.36",y1:"5.64",x2:"19.78",y2:"4.22"},child:[]}]})(e)}function IC(e){return ws({attr:{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"},child:[{tag:"line",attr:{x1:"18",y1:"6",x2:"6",y2:"18"},child:[]},{tag:"line",attr:{x1:"6",y1:"6",x2:"18",y2:"18"},child:[]}]})(e)}const zC=j.div`
   background-color: ${e=>e.theme==="dark"?"#23283C":"#F8F9FC"};
