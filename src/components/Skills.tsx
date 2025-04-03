@@ -101,6 +101,14 @@ const skills = [
   {
     name: 'PyTorch',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg'
+  },
+  {
+    name: 'OpenCV',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg'
+  },
+  {
+    name: 'NumPy',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg'
   }
 ];
 
