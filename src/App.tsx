@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import SEO from './components/SEO';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
@@ -306,6 +307,7 @@ function AppContent() {
 
   return (
     <>
+      <SEO />
       <GlobalWrapper theme={theme} />
       <AppContainer theme={theme}>
         <Nav>
