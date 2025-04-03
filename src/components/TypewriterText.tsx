@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 
-const TypewriterContainer = styled(motion.div)`
+const TypewriterContainer = styled(motion.div)<{ isTypingComplete: boolean }>`
   display: inline-block;
   position: relative;
   
@@ -14,7 +14,10 @@ const TypewriterContainer = styled(motion.div)`
     height: 80%;
     width: 2px;
     background: #91a1d1;
-    animation: blink 0.8s infinite;
+    animation: ${props => props.isTypingComplete ? 'none' : 'blink 0.8s infinite'};
+    opacity: ${props => props.isTypingComplete ? 0 : 1};
+    transition: opacity 0.3s ease;
+    visibility: ${props => props.isTypingComplete ? 'hidden' : 'visible'};
   }
 
   @keyframes blink {
@@ -37,6 +40,7 @@ const TypewriterText = ({
   speed = 50 
 }: TypewriterTextProps) => {
   const [displayedText, setDisplayedText] = useState('');
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -54,6 +58,7 @@ const TypewriterText = ({
           currentIndex++;
         } else {
           clearInterval(intervalId);
+          setIsTypingComplete(true);
         }
       }, speed);
 
@@ -70,6 +75,7 @@ const TypewriterText = ({
       transition={{ duration: 0.1 }}
       className={className}
       dangerouslySetInnerHTML={{ __html: displayedText }}
+      isTypingComplete={isTypingComplete}
     />
   );
 };

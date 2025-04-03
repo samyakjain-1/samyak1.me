@@ -78,7 +78,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1rem;
   position: relative;
   width: 100%;
   max-width: 1200px;
@@ -97,6 +97,7 @@ const Logo = styled(motion.a)`
   text-decoration: none;
   position: relative;
   z-index: 20;
+  padding: 0.5rem;
 
   &::after {
     content: '';
@@ -104,13 +105,13 @@ const Logo = styled(motion.a)`
     width: 0;
     height: 2px;
     bottom: -4px;
-    left: 0;
+    left: 0.5rem;
     background-color: #91a1d1;
     transition: width 0.3s ease;
   }
 
   &:hover::after {
-    width: 100%;
+    width: calc(100% - 1rem);
   }
 `;
 
