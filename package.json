@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://samyakjain-1.github.io/react-website",
+  "homepage": "https://samyak1.me",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

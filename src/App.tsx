@@ -6,7 +6,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
 const GlobalWrapper = styled.div`
   background-color: ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'};
@@ -22,18 +22,27 @@ const AppContainer = styled.div`
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
   min-height: 100vh;
   position: relative;
   z-index: 1;
+
+  @media (min-width: 640px) {
+    padding: 0 2rem;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
+  position: relative;
+
+  @media (min-width: 640px) {
+    padding: 2rem 0;
+  }
 `;
 
 const Logo = styled(motion.a)`
@@ -43,6 +52,7 @@ const Logo = styled(motion.a)`
   color: #91a1d1;
   text-decoration: none;
   position: relative;
+  z-index: 20;
 
   &::after {
     content: '';
@@ -60,10 +70,46 @@ const Logo = styled(motion.a)`
   }
 `;
 
-const NavLinks = styled.div`
+const MenuButton = styled(motion.button)`
   display: flex;
-  gap: 2rem;
   align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 20;
+  padding: 0.5rem;
+
+  @media (min-width: 640px) {
+    display: none;
+  }
+`;
+
+const NavLinks = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  right: ${props => props.isOpen ? '0' : '-100%'};
+  height: 100vh;
+  width: 100%;
+  background-color: ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transition: right 0.3s ease;
+  z-index: 10;
+
+  @media (min-width: 640px) {
+    position: static;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+    background-color: transparent;
+    gap: 2rem;
+  }
 `;
 
 const NavLink = styled(motion.a)`
@@ -71,6 +117,11 @@ const NavLink = styled(motion.a)`
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
   font-weight: 500;
   position: relative;
+  font-size: 1.25rem;
+
+  @media (min-width: 640px) {
+    font-size: 1rem;
+  }
 
   &::after {
     content: '';
@@ -102,7 +153,6 @@ const ThemeToggle = styled(motion.button)`
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  margin-left: 1rem;
   transition: color 0.3s ease;
 
   &:hover {
@@ -120,15 +170,20 @@ const Hero = styled.section`
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
+  padding: 0 1rem;
 `;
 
 const HeroTitle = styled(motion.h1)`
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   margin: 0;
   line-height: 1.2;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
   width: 100%;
+
+  @media (min-width: 640px) {
+    font-size: 4rem;
+  }
 `;
 
 const NameHighlight = styled.span`
@@ -139,37 +194,58 @@ const NameHighlight = styled.span`
 `;
 
 const HeroSubtitle = styled(motion.h2)`
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   font-weight: 700;
+
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+    margin: 2rem 0;
+  }
 `;
 
 const HeroText = styled(motion.p)`
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   line-height: 1.6;
   max-width: 800px;
   text-align: center;
+
+  @media (min-width: 640px) {
+    font-size: 1.25rem;
+    margin: 2rem auto;
+  }
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0 1rem;
+
+  @media (min-width: 640px) {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 `;
 
 const SocialLink = styled(motion.a)`
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
-  font-size: 1rem;
+  font-size: 0.875rem;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
   border-radius: 4px;
   transition: all 0.3s ease;
+
+  @media (min-width: 640px) {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
 
   &:hover {
     color: #91a1d1;
@@ -180,6 +256,7 @@ const SocialLink = styled(motion.a)`
 function AppContent() {
   const { theme, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [age, setAge] = useState(0);
 
   useEffect(() => {
@@ -189,14 +266,12 @@ function AppContent() {
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
     
-    // Adjust age if birthday hasn't occurred this year
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
     
     setAge(age);
 
-    // Scroll handler
     const handleScroll = () => {
       const sections = ['projects', 'skills', 'contact'];
       const currentSection = sections.find(section => {
@@ -214,6 +289,8 @@ function AppContent() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <>
       <GlobalWrapper theme={theme} />
@@ -227,11 +304,18 @@ function AppContent() {
           >
             SJ.
           </Logo>
-          <NavLinks>
+          <MenuButton
+            theme={theme}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <FiX /> : <FiMenu />}
+          </MenuButton>
+          <NavLinks isOpen={isMenuOpen} theme={theme}>
             <NavLink
               href="#projects"
               className={activeSection === 'projects' ? 'active' : ''}
               theme={theme}
+              onClick={closeMenu}
             >
               projects
             </NavLink>
@@ -239,6 +323,7 @@ function AppContent() {
               href="#skills"
               className={activeSection === 'skills' ? 'active' : ''}
               theme={theme}
+              onClick={closeMenu}
             >
               skills
             </NavLink>
@@ -246,6 +331,7 @@ function AppContent() {
               href="#contact"
               className={activeSection === 'contact' ? 'active' : ''}
               theme={theme}
+              onClick={closeMenu}
             >
               contact
             </NavLink>
@@ -253,7 +339,7 @@ function AppContent() {
               onClick={toggleTheme}
               theme={theme}
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.95 }}
             >
               {theme === 'dark' ? <FiSun /> : <FiMoon />}
             </ThemeToggle>

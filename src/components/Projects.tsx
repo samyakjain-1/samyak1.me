@@ -3,34 +3,48 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 const ProjectsSection = styled.section`
-  padding: 5rem 0;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 640px) {
+    padding: 5rem 0;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
   text-align: center;
+
+  @media (min-width: 640px) {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
 `;
 
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
 `;
 
 const ProjectCard = styled(motion.div)`
   background: ${props => props.theme === 'dark' ? '#2D3348' : '#FFFFFF'};
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,6 +53,10 @@ const ProjectCard = styled(motion.div)`
   cursor: pointer;
   box-shadow: ${props => props.theme === 'dark' ? '0 4px 6px rgba(0, 0, 0, 0.1)' : '0 4px 6px rgba(45, 51, 72, 0.08)'};
 
+  @media (min-width: 640px) {
+    padding: 2.5rem;
+  }
+
   &:hover {
     transform: translateY(-8px);
     box-shadow: ${props => props.theme === 'dark' ? '0 12px 24px rgba(0, 0, 0, 0.2)' : '0 12px 24px rgba(45, 51, 72, 0.12)'};
@@ -46,50 +64,77 @@ const ProjectCard = styled(motion.div)`
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
+
+  @media (min-width: 640px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const ProjectDescription = styled.p`
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-size: 1rem;
   opacity: 0.9;
+
+  @media (min-width: 640px) {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const TechStack = styled.div`
   display: flex;
-  gap: 1.2rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: 640px) {
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
 `;
 
 const Tech = styled.span`
   color: #91a1d1;
-  font-size: 1rem;
+  font-size: 0.875rem;
   opacity: 0.9;
   font-weight: 500;
+
+  @media (min-width: 640px) {
+    font-size: 1rem;
+  }
 `;
 
 const ProjectLinks = styled.div`
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   margin-top: auto;
+
+  @media (min-width: 640px) {
+    gap: 1.5rem;
+  }
 `;
 
 const IconLink = styled(motion.a)`
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   opacity: 0.8;
   transition: opacity 0.2s ease;
+
+  @media (min-width: 640px) {
+    font-size: 1.5rem;
+  }
 
   &:hover {
     color: #91a1d1;
