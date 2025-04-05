@@ -1,15 +1,38 @@
-# 🚀 Samyak's React Website
+# Personal Portfolio Website 🌐
 
-My personal website built with **React**, **Vite**, and **TypeScript**, deployed via **GitHub Pages**.
+This is my personal portfolio website built using **React.js**.  
+It serves as a digital space to showcase who I am, the projects I’ve worked on, and how to get in touch with me.
 
-## 🔗 Live Demo
+## 🔍 Overview
 
-Check it out here: [https://samyak1.me](https://samyak1.me)
+The portfolio highlights:
 
-## 📦 Tech Stack
+- 👨‍💻 My background and technical skills
+- 🧠 Projects I’ve developed or contributed to
+- 📞 Contact information
+- 🌐 Links to my resume and social profiles
 
-- ⚛️ React
-- ⚡ Vite
-- 🟦 TypeScript
-- 🎨 Tailwind CSS
-- 🚀 Deployed with GitHub Pages
+## 🚀 Tech Stack
+
+- **React.js** – Frontend framework
+- **HTML5 & CSS3** – Markup and styling
+- **JavaScript** – Client-side scripting
+
+## 🛠️ Features
+
+- Responsive and modern UI/UX
+- Project section with GitHub links
+- Resume and contact section
+- Social media integration
+
+## 📬 Contact
+
+Feel free to reach out!
+
+- [LinkedIn](https://www.linkedin.com/in/samyak1/)
+- [GitHub](https://github.com/samyakjain-1)
+- Email: samyakjain2575@gmail.com
+
+---
+
+> Made with ❤️ by **Samyak Jain**
