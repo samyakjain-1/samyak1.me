@@ -44,10 +44,11 @@ const SkillCard = styled(motion.div)`
   }
 `;
 
-const SkillIcon = styled.img`
+const SkillIcon = styled.img<{ isBash?: boolean; theme?: string }>`
   width: 40px;
   height: 40px;
   object-fit: contain;
+  ${({ isBash, theme }) => isBash && theme === 'dark' && 'filter: brightness(0) invert(1);'}
 `;
 
 const SkillName = styled.span`
@@ -92,7 +93,7 @@ const skills = [
   },
   {
     name: 'Bash',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg'
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg'
   },
   {
     name: 'Docker',
@@ -136,7 +137,7 @@ const Skills = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
           >
-            <SkillIcon src={skill.icon} alt={skill.name} />
+            <SkillIcon src={skill.icon} alt={skill.name} isBash={skill.name === 'Bash'} theme={theme} />
             <SkillName theme={theme}>{skill.name}</SkillName>
           </SkillCard>
         ))}

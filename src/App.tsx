@@ -14,13 +14,19 @@ import ParticlesBackground from './components/ParticlesBackground';
 const FloatingElement = styled(motion.div)`
   position: fixed;
   border-radius: 50%;
-  background: ${props => props.theme === 'dark' ? 'rgba(145, 161, 209, 0.1)' : 'rgba(74, 86, 128, 0.1)'};
+  background: ${props => props.theme === 'dark' ? 'rgba(145, 161, 209, 0.03)' : 'rgba(74, 86, 128, 0.03)'};
   pointer-events: none;
   z-index: 0;
-  filter: blur(100px);
+  filter: blur(60px);
   opacity: 0.6;
-  mix-blend-mode: normal;
-  transition: transform 0.2s ease-out;
+  mix-blend-mode: plus-lighter;
+  will-change: transform;
+  transform-origin: center center;
+  transition: opacity 0.3s ease;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const GlobalWrapper = styled.div`
@@ -222,7 +228,7 @@ const HeroContainer = styled.div`
   position: relative;
   width: 100%;
   min-height: calc(100vh - 100px);
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Hero = styled.section`
@@ -237,17 +243,17 @@ const Hero = styled.section`
   max-width: 800px;
   padding: 0 1rem;
   position: relative;
-  gap: 0.5rem;
+  gap: 0.2rem;
 
   @media (min-width: 640px) {
-    gap: 0.75rem;
+    gap: 0.4rem;
   }
 `;
 
 const HeroTitle = styled(motion.h1)`
   font-size: 1.75rem;
   font-weight: 800;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1.2;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
   width: 100%;
@@ -265,6 +271,7 @@ const HeroTitle = styled(motion.h1)`
 
   @media (min-width: 640px) {
     font-size: 4rem;
+    margin-bottom: 0.75rem;
   }
 `;
 
@@ -291,26 +298,26 @@ const StyledTypewriter = styled(TypewriterText)`
 const HeroSubtitle = styled(motion.h2)`
   font-size: 1.75rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
-  margin: 0.75rem 0;
+  margin: 0 0 0.5rem 0;
   font-weight: 700;
 
   @media (min-width: 640px) {
     font-size: 2.5rem;
-    margin: 1rem 0;
+    margin: 0 0 0.75rem 0;
   }
 `;
 
 const HeroText = styled(motion.p)`
   font-size: 1.1rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
-  margin: 0.75rem auto;
+  margin: 0.5rem auto 0  auto;
   line-height: 1.6;
   max-width: 800px;
   text-align: center;
 
   @media (min-width: 640px) {
     font-size: 1.25rem;
-    margin: 1rem auto;
+    margin: 0.75rem auto 0 auto;
   }
 `;
 
@@ -426,22 +433,44 @@ function AppContent() {
   // Floating elements configuration
   const floatingElements = [
     {
-      size: 800,
-      initialX: "-10%",
+      size: 500,
+      initialX: "20%",
+      initialY: "30%",
+      duration: 20,
+      movementFactor: 40,
+      color: 'rgba(145, 161, 209, 0.03)'
+    },
+    {
+      size: 400,
+      initialX: "75%",
       initialY: "20%",
-      duration: 50,
+      duration: 25,
+      movementFactor: 30,
+      color: 'rgba(145, 161, 209, 0.04)'
     },
     {
-      size: 600,
-      initialX: "60%",
-      initialY: "10%",
-      duration: 45,
-    },
-    {
-      size: 700,
-      initialX: "80%",
+      size: 300,
+      initialX: "85%",
       initialY: "60%",
-      duration: 55,
+      duration: 30,
+      movementFactor: 20,
+      color: 'rgba(145, 161, 209, 0.05)'
+    },
+    {
+      size: 250,
+      initialX: "15%",
+      initialY: "70%",
+      duration: 35,
+      movementFactor: 25,
+      color: 'rgba(145, 161, 209, 0.04)'
+    },
+    {
+      size: 200,
+      initialX: "45%",
+      initialY: "30%",
+      duration: 40,
+      movementFactor: 35,
+      color: 'rgba(145, 161, 209, 0.03)'
     }
   ];
 
@@ -549,20 +578,27 @@ function AppContent() {
             height: element.size,
             left: element.initialX,
             top: element.initialY,
+            background: theme === 'dark' ? element.color : element.color.replace('145, 161, 209', '74, 86, 128'),
             transform: `translate(
-              ${(mousePosition.x * (index + 1)) / (index + 50)}px,
-              ${(mousePosition.y * (index + 1)) / (index + 50)}px
+              ${(mousePosition.x - window.innerWidth / 2) / element.movementFactor}px,
+              ${(mousePosition.y - window.innerHeight / 2) / element.movementFactor}px
             )`,
           }}
           animate={{
-            y: [0, -40, 0],
-            x: [0, 30, 0],
+            y: [0, -15, 0],
+            x: [0, 10, 0],
             scale: [1, 1.05, 1],
+            opacity: [0.4, 0.6, 0.4],
           }}
           transition={{
             duration: element.duration,
             repeat: Infinity,
             ease: "easeInOut",
+            times: [0, 0.5, 1],
+          }}
+          whileHover={{
+            opacity: 0.8,
+            transition: { duration: 0.3 }
           }}
         />
       ))}
@@ -644,11 +680,7 @@ function AppContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
               >
-                I am a {age}-year-old aspiring software engineer with a knack for solving problems and building efficient systems. 
-                Currently a sophomore studying Computer Science at the University of Wisconsin-Madison, I'm passionate about 
-                machine learning, artificial intelligence, large language models (LLMs), and computer vision. Through my coursework, 
-                I've developed a strong foundation in both theoretical and practical aspects of computer science, enabling me to 
-                approach complex problems with confidence and creativity.
+                I'm a sophomore Computer Science student at UW–Madison passionate about machine learning, AI, LLMs, and computer vision. I love solving problems and building efficient systems.
               </HeroText>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

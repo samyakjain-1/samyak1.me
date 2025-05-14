@@ -144,17 +144,17 @@ const IconLink = styled(motion.a)`
 
 const projects = [
   {
+    title: 'Sales Order Processing Automation Tool',
+    description: 'Built a full stack webapp to automate order processing with PDF upload, 95% accurate product matching (FastAPI + SQLite), real-time React dashboard, and CSV export.',
+    tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'SQLAlchemy'],
+    github: 'https://github.com/samyakjain-1/sales-automation'
+  },
+  {
     title: 'Mental Health Chatbot',
     description: 'A chatbot designed to assist users with mental health concerns. Offers a platform where individuals can talk about their issues and receive supportive responses. Promotes emotional well-being through accessible communication.',
     tech: ['Python', 'PyTorch', 'NLP', 'Machine Learning'],
     demo: 'https://samyakjain-1.github.io/chatbot',
     github: 'https://github.com/samyakjain-1/chatbot'
-  },
-  {
-    title: 'Cell Image Clustering Tool',
-    description: 'A Dockerized machine learning tool that automatically clusters unlabeled microscopy images using K-Means clustering. Features image preprocessing, PCA dimensionality reduction, and automated organization of biomedical research datasets. Includes visualization tools for validating cluster coherence and biological pattern separation.',
-    tech: ['Python', 'OpenCV', 'scikit-learn', 'Docker'],
-    github: 'https://github.com/samyakjain-1/cell-image-clustering'
   },
   {
     title: 'Personal Website',
