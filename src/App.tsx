@@ -680,7 +680,7 @@ function AppContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
               >
-                I'm a sophomore Computer Science student at UW–Madison passionate about machine learning, AI, LLMs, and computer vision. I love solving problems and building efficient systems.
+                I'm a {age}-year-old sophomore Computer Science student at UW–Madison passionate about machine learning, AI, LLMs, and computer vision. I love solving problems and building efficient systems.
               </HeroText>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
