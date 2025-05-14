@@ -192,7 +192,7 @@ Error generating stack: `+o.message+`
     color: #91a1d1;
     opacity: 1;
   }
-`,qC=[{title:"Mental Health Chatbot",description:"A chatbot designed to assist users with mental health concerns. Offers a platform where individuals can talk about their issues and receive supportive responses. Promotes emotional well-being through accessible communication.",tech:["Python","PyTorch","NLP","Machine Learning"],demo:"https://samyakjain-1.github.io/chatbot",github:"https://github.com/samyakjain-1/chatbot"},{title:"Cell Image Clustering Tool",description:"A Dockerized machine learning tool that automatically clusters unlabeled microscopy images using K-Means clustering. Features image preprocessing, PCA dimensionality reduction, and automated organization of biomedical research datasets. Includes visualization tools for validating cluster coherence and biological pattern separation.",tech:["Python","OpenCV","scikit-learn","Docker"],github:"https://github.com/samyakjain-1/cell-image-clustering"},{title:"Personal Website",description:"My personal portfolio website showcasing my background, skills, and projects in a clean and structured format. Built with modern web technologies and features a responsive design with dark/light mode.",tech:["React","TypeScript","Emotion","Framer Motion"],demo:"https://samyak1.me",github:"https://github.com/samyakjain-1/website"}],ZC=()=>{const{theme:e}=Fs();return A.jsxs($C,{id:"projects",children:[A.jsx(UC,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5},children:"PROJECTS"}),A.jsx(HC,{children:qC.map((t,n)=>A.jsxs(WC,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5,delay:n*.1},children:[A.jsx(KC,{theme:e,children:t.title}),A.jsx(YC,{theme:e,children:t.description}),A.jsx(GC,{children:t.tech.map((r,i)=>A.jsx(XC,{children:r},i))}),A.jsxs(QC,{children:[A.jsx(ch,{theme:e,href:t.github,target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.1},whileTap:{scale:.95},children:A.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round",children:A.jsx("path",{d:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"})})}),t.demo&&A.jsx(ch,{theme:e,href:t.demo,target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.1},whileTap:{scale:.95},children:A.jsxs("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round",children:[A.jsx("path",{d:"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"}),A.jsx("polyline",{points:"15 3 21 3 21 9"}),A.jsx("line",{x1:"10",y1:"14",x2:"21",y2:"3"})]})})]})]},n))})]})},JC=O.section`
+`,qC=[{title:"Sales Order Processing Automation Tool",description:"Built a full stack webapp to automate order processing with PDF upload, 95% accurate product matching (FastAPI + SQLite), real-time React dashboard, and CSV export.",tech:["Python","FastAPI","React","TypeScript","SQLAlchemy"],github:"https://github.com/samyakjain-1/sales-automation"},{title:"Mental Health Chatbot",description:"A chatbot designed to assist users with mental health concerns. Offers a platform where individuals can talk about their issues and receive supportive responses. Promotes emotional well-being through accessible communication.",tech:["Python","PyTorch","NLP","Machine Learning"],demo:"https://samyakjain-1.github.io/chatbot",github:"https://github.com/samyakjain-1/chatbot"},{title:"Personal Website",description:"My personal portfolio website showcasing my background, skills, and projects in a clean and structured format. Built with modern web technologies and features a responsive design with dark/light mode.",tech:["React","TypeScript","Emotion","Framer Motion"],demo:"https://samyak1.me",github:"https://github.com/samyakjain-1/website"}],ZC=()=>{const{theme:e}=Fs();return A.jsxs($C,{id:"projects",children:[A.jsx(UC,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5},children:"PROJECTS"}),A.jsx(HC,{children:qC.map((t,n)=>A.jsxs(WC,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5,delay:n*.1},children:[A.jsx(KC,{theme:e,children:t.title}),A.jsx(YC,{theme:e,children:t.description}),A.jsx(GC,{children:t.tech.map((r,i)=>A.jsx(XC,{children:r},i))}),A.jsxs(QC,{children:[A.jsx(ch,{theme:e,href:t.github,target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.1},whileTap:{scale:.95},children:A.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round",children:A.jsx("path",{d:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"})})}),t.demo&&A.jsx(ch,{theme:e,href:t.demo,target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.1},whileTap:{scale:.95},children:A.jsxs("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round",children:[A.jsx("path",{d:"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"}),A.jsx("polyline",{points:"15 3 21 3 21 9"}),A.jsx("line",{x1:"10",y1:"14",x2:"21",y2:"3"})]})})]})]},n))})]})},JC=O.section`
   padding: 5rem 0;
   display: flex;
   flex-direction: column;
@@ -230,12 +230,13 @@ Error generating stack: `+o.message+`
   width: 40px;
   height: 40px;
   object-fit: contain;
+  ${({isBash:e,theme:t})=>e&&t==="dark"&&"filter: brightness(0) invert(1);"}
 `,ik=O.span`
   color: ${e=>e.theme==="dark"?"#CCCDFA":"#4A5680"};
   font-size: 0.9rem;
   margin-top: 0.5rem;
   font-weight: 500;
-`,ok=[{name:"Python",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},{name:"Java",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"},{name:"HTML",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"},{name:"CSS",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"},{name:"JavaScript",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"},{name:"TypeScript",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"},{name:"React",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},{name:"Git",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},{name:"Bash",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg"},{name:"Docker",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},{name:"PyTorch",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"},{name:"OpenCV",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"},{name:"NumPy",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"}],sk=()=>{const{theme:e}=Fs();return A.jsxs(JC,{id:"skills",children:[A.jsx(ek,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5},children:"SKILLS"}),A.jsx(tk,{children:ok.map((t,n)=>A.jsxs(nk,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5,delay:n*.05},children:[A.jsx(rk,{src:t.icon,alt:t.name}),A.jsx(ik,{theme:e,children:t.name})]},n))})]})},ak=O.section`
+`,ok=[{name:"Python",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},{name:"Java",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"},{name:"HTML",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"},{name:"CSS",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"},{name:"JavaScript",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"},{name:"TypeScript",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"},{name:"React",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},{name:"Git",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},{name:"Bash",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"},{name:"Docker",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},{name:"PyTorch",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"},{name:"OpenCV",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"},{name:"NumPy",icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"}],sk=()=>{const{theme:e}=Fs();return A.jsxs(JC,{id:"skills",children:[A.jsx(ek,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5},children:"SKILLS"}),A.jsx(tk,{children:ok.map((t,n)=>A.jsxs(nk,{theme:e,initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.5,delay:n*.05},children:[A.jsx(rk,{src:t.icon,alt:t.name,isBash:t.name==="Bash",theme:e}),A.jsx(ik,{theme:e,children:t.name})]},n))})]})},ak=O.section`
   padding: 5rem 0;
   display: flex;
   flex-direction: column;
@@ -507,7 +508,7 @@ object-assign
   position: relative;
   width: 100%;
   min-height: calc(100vh - 100px);
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 `,jP=O.section`
   min-height: calc(100vh - 100px);
   display: flex;
@@ -520,15 +521,15 @@ object-assign
   max-width: 800px;
   padding: 0 1rem;
   position: relative;
-  gap: 0.5rem;
+  gap: 0.2rem;
 
   @media (min-width: 640px) {
-    gap: 0.75rem;
+    gap: 0.4rem;
   }
 `,FP=O(K.h1)`
   font-size: 1.75rem;
   font-weight: 800;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1.2;
   color: ${e=>e.theme==="dark"?"#CCCDFA":"#2D3348"};
   width: 100%;
@@ -546,6 +547,7 @@ object-assign
 
   @media (min-width: 640px) {
     font-size: 4rem;
+    margin-bottom: 0.75rem;
   }
 `,VP=O(uP)`
   color: ${e=>e.theme==="dark"?"#CCCDFA":"#2D3348"};
@@ -568,24 +570,24 @@ object-assign
 `,NP=O(K.h2)`
   font-size: 1.75rem;
   color: ${e=>e.theme==="dark"?"#CCCDFA":"#2D3348"};
-  margin: 0.75rem 0;
+  margin: 0 0 0.5rem 0;
   font-weight: 700;
 
   @media (min-width: 640px) {
     font-size: 2.5rem;
-    margin: 1rem 0;
+    margin: 0 0 0.75rem 0;
   }
 `,IP=O(K.p)`
   font-size: 1.1rem;
   color: ${e=>e.theme==="dark"?"#CCCDFA":"#4A5680"};
-  margin: 0.75rem auto;
+  margin: 0.5rem auto 0  auto;
   line-height: 1.6;
   max-width: 800px;
   text-align: center;
 
   @media (min-width: 640px) {
     font-size: 1.25rem;
-    margin: 1rem auto;
+    margin: 0.75rem auto 0 auto;
   }
 `,zP=O(K.div)`
   display: flex;
@@ -680,4 +682,4 @@ object-assign
               ${(l.x-window.innerWidth/2)/m.movementFactor}px,
               ${(l.y-window.innerHeight/2)/m.movementFactor}px
             )`},animate:{y:[0,-15,0],x:[0,10,0],scale:[1,1.05,1],opacity:[.4,.6,.4]},transition:{duration:m.duration,repeat:1/0,ease:"easeInOut",times:[0,.5,1]},whileHover:{opacity:.8,transition:{duration:.3}}},x)),A.jsxs(EP,{children:[A.jsxs(RP,{theme:e,children:[A.jsx(MP,{href:"#",initial:{opacity:0,y:-20},animate:{opacity:1,y:0},transition:{duration:.5},children:"SJ."}),A.jsx(LP,{theme:e,onClick:()=>o(!i),children:i?A.jsx(xP,{}):A.jsx(yP,{})}),A.jsxs(DP,{isOpen:i,theme:e,children:[A.jsx(ka,{href:"#projects",className:n==="projects"?"active":"",theme:e,onClick:p,children:"projects"}),A.jsx(ka,{href:"#skills",className:n==="skills"?"active":"",theme:e,onClick:p,children:"skills"}),A.jsx(ka,{href:"#contact",className:n==="contact"?"active":"",theme:e,onClick:p,children:"contact"}),A.jsx(OP,{onClick:t,theme:e,whileHover:{scale:1.1},whileTap:{scale:.95},children:e==="dark"?A.jsx(wP,{}):A.jsx(vP,{})})]})]}),A.jsxs(AP,{theme:e,children:[A.jsx(_P,{children:A.jsxs(jP,{children:[A.jsx(FP,{theme:e,children:A.jsx(VP,{text:d?`Hi, I am
- Samyak Jain.`:"Hi, I am  Samyak Jain.",delay:.5,speed:70,theme:e})}),A.jsx(NP,{theme:e,initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.5,delay:.7},children:"Software Developer"}),A.jsxs(IP,{theme:e,initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.5,delay:.9},children:["I am a ",s,"-year-old aspiring software engineer with a knack for solving problems and building efficient systems. Currently a sophomore studying Computer Science at the University of Wisconsin-Madison, I'm passionate about machine learning, artificial intelligence, large language models (LLMs), and computer vision. Through my coursework, I've developed a strong foundation in both theoretical and practical aspects of computer science, enabling me to approach complex problems with confidence and creativity."]}),A.jsx(K.div,{initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.5,delay:1.1},children:A.jsxs(zP,{initial:"hidden",animate:"visible",variants:{visible:{transition:{staggerChildren:.1,delayChildren:1.3}}},children:[A.jsx(K.div,{variants:{hidden:{opacity:0,y:20},visible:{opacity:1,y:0}},children:A.jsx(Pa,{theme:e,href:"mailto:samyakjain2575@gmail.com",whileHover:{scale:1.05},whileTap:{scale:.95},children:"email"})}),A.jsx(K.div,{variants:{hidden:{opacity:0,y:20},visible:{opacity:1,y:0}},children:A.jsx(Pa,{theme:e,href:"https://github.com/samyakjain-1",target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.05},whileTap:{scale:.95},children:"github"})}),A.jsx(K.div,{variants:{hidden:{opacity:0,y:20},visible:{opacity:1,y:0}},children:A.jsx(Pa,{theme:e,href:"https://linkedin.com/in/samyak1",target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.05},whileTap:{scale:.95},children:"linkedin"})})]})})]})}),A.jsx(Ea,{id:"projects",initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-100px"},transition:{duration:.6},children:A.jsx(ZC,{})}),A.jsx(Ea,{id:"skills",initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-100px"},transition:{duration:.6},children:A.jsx(sk,{})}),A.jsx(Ea,{id:"contact",initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-100px"},transition:{duration:.6},children:A.jsx(dk,{})})]})]}),A.jsx(vw,{children:c&&A.jsx(bP,{theme:e,onClick:h,initial:{opacity:0,scale:.5},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.5},whileHover:{scale:1.1},whileTap:{scale:.95},children:"↑"})})]})}function UP(){return A.jsx(y1,{children:A.jsx(BC,{children:A.jsx($P,{})})})}Lm(document.getElementById("root")).render(A.jsx(k.StrictMode,{children:A.jsx(UP,{})}));
+ Samyak Jain.`:"Hi, I am  Samyak Jain.",delay:.5,speed:70,theme:e})}),A.jsx(NP,{theme:e,initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.5,delay:.7},children:"Software Developer"}),A.jsxs(IP,{theme:e,initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.5,delay:.9},children:["I'm a ",s,"-year-old sophomore Computer Science student at UW–Madison passionate about machine learning, AI, LLMs, and computer vision. I love solving problems and building efficient systems."]}),A.jsx(K.div,{initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.5,delay:1.1},children:A.jsxs(zP,{initial:"hidden",animate:"visible",variants:{visible:{transition:{staggerChildren:.1,delayChildren:1.3}}},children:[A.jsx(K.div,{variants:{hidden:{opacity:0,y:20},visible:{opacity:1,y:0}},children:A.jsx(Pa,{theme:e,href:"mailto:samyakjain2575@gmail.com",whileHover:{scale:1.05},whileTap:{scale:.95},children:"email"})}),A.jsx(K.div,{variants:{hidden:{opacity:0,y:20},visible:{opacity:1,y:0}},children:A.jsx(Pa,{theme:e,href:"https://github.com/samyakjain-1",target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.05},whileTap:{scale:.95},children:"github"})}),A.jsx(K.div,{variants:{hidden:{opacity:0,y:20},visible:{opacity:1,y:0}},children:A.jsx(Pa,{theme:e,href:"https://linkedin.com/in/samyak1",target:"_blank",rel:"noopener noreferrer",whileHover:{scale:1.05},whileTap:{scale:.95},children:"linkedin"})})]})})]})}),A.jsx(Ea,{id:"projects",initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-100px"},transition:{duration:.6},children:A.jsx(ZC,{})}),A.jsx(Ea,{id:"skills",initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-100px"},transition:{duration:.6},children:A.jsx(sk,{})}),A.jsx(Ea,{id:"contact",initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-100px"},transition:{duration:.6},children:A.jsx(dk,{})})]})]}),A.jsx(vw,{children:c&&A.jsx(bP,{theme:e,onClick:h,initial:{opacity:0,scale:.5},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.5},whileHover:{scale:1.1},whileTap:{scale:.95},children:"↑"})})]})}function UP(){return A.jsx(y1,{children:A.jsx(BC,{children:A.jsx($P,{})})})}Lm(document.getElementById("root")).render(A.jsx(k.StrictMode,{children:A.jsx(UP,{})}));
