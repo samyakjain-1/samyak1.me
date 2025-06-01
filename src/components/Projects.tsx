@@ -27,17 +27,23 @@ const SectionTitle = styled(motion.h2)`
 `;
 
 const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  justify-content: center;
 
   @media (min-width: 640px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+  }
+
+  & > * {
+    flex: 1 1 300px;
+    max-width: 400px;
+    min-width: 300px;
   }
 `;
 
@@ -144,6 +150,19 @@ const IconLink = styled(motion.a)`
 
 const projects = [
   {
+    title: 'UW-Madison Course Insights Platform',
+    description: 'A modern, AI-powered web platform that helps UW-Madison students explore courses through real student experiences collected from Reddit. Features smart summaries, sentiment analysis, and course discovery tools.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Python', 'AI/LLM', 'Reddit API'],
+    demo: 'https://courseinsight.vercel.app'
+  },
+  {
+    title: 'IPL Match Visualizer',
+    description: 'An interactive web application built with Python and Streamlit that helps cricket fans explore historical IPL data through beautiful visualizations. Features team performance analysis, toss impact studies, and nail-biting match identification.',
+    tech: ['Python', 'Streamlit', 'Pandas', 'Plotly', 'Altair', 'Data Analysis'],
+    demo: 'https://statsipl.streamlit.app',
+    github: 'https://github.com/samyakjain-1/IPL-Stats'
+  },
+  {
     title: 'Sales Order Processing Automation Tool',
     description: 'Built a full stack webapp to automate order processing with PDF upload, 95% accurate product matching (FastAPI + SQLite), real-time React dashboard, and CSV export.',
     tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'SQLAlchemy'],
@@ -197,18 +216,20 @@ const Projects = () => {
               ))}
             </TechStack>
             <ProjectLinks>
-              <IconLink
-                theme={theme}
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-              </IconLink>
+              {project.github && (
+                <IconLink
+                  theme={theme}
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                </IconLink>
+              )}
               {project.demo && (
                 <IconLink
                   theme={theme}
