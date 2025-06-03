@@ -7,6 +7,10 @@ const SkillsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -15,32 +19,166 @@ const SectionTitle = styled(motion.h2)`
   margin-bottom: 3rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
-const SkillsGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  max-width: 1000px;
+const SliderWrapper = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  position: relative;
   margin: 0 auto;
+  
+  &::before,
+  &::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+    top: 0;
+  }
+  
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'} 0%, transparent 100%);
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'} 0%, transparent 100%);
+  }
+  
+  @media (max-width: 768px) {
+    &::before,
+    &::after {
+      width: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    &::before,
+    &::after {
+      width: 20px;
+    }
+  }
 `;
 
-const SkillCard = styled(motion.div)`
+const SlideTrack = styled.div`
+  display: flex;
+  gap: 1rem;
+  width: calc((180px + 1rem) * 26);
+  animation: scroll 45s linear infinite;
+  padding: 1rem 0;
+  
+  @keyframes scroll {
+    0% { 
+      transform: translateX(0); 
+    }
+    100% { 
+      transform: translateX(calc((-180px - 1rem) * 13));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+    width: calc((120px + 0.75rem) * 26);
+    animation: scrollTablet 35s linear infinite;
+    
+    @keyframes scrollTablet {
+      0% { 
+        transform: translateX(0); 
+      }
+      100% { 
+        transform: translateX(calc((-120px - 0.75rem) * 13));
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+    width: calc((90px + 0.5rem) * 26);
+    animation: scrollMobile 30s linear infinite;
+    padding: 0.5rem 0;
+    
+    @keyframes scrollMobile {
+      0% { 
+        transform: translateX(0); 
+      }
+      100% { 
+        transform: translateX(calc((-90px - 0.5rem) * 13));
+      }
+    }
+  }
+  
+  @media (max-width: 360px) {
+    gap: 0.4rem;
+    width: calc((75px + 0.4rem) * 26);
+    animation: scrollSmall 25s linear infinite;
+    
+    @keyframes scrollSmall {
+      0% { 
+        transform: translateX(0); 
+      }
+      100% { 
+        transform: translateX(calc((-75px - 0.4rem) * 13));
+      }
+    }
+  }
+`;
+
+const SkillCard = styled.div`
   background: ${props => props.theme === 'dark' ? '#2D3348' : '#FFFFFF'};
-  border-radius: 8px;
-  padding: 1.25rem 1.75rem;
+  border-radius: 10px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  box-shadow: ${props => props.theme === 'dark' ? '0 4px 6px rgba(0, 0, 0, 0.1)' : '0 4px 6px rgba(45, 51, 72, 0.08)'};
-
+  flex-shrink: 0;
+  width: 180px;
+  height: 120px;
+  box-shadow: ${props => props.theme === 'dark' ? '0 6px 12px rgba(0, 0, 0, 0.15)' : '0 6px 12px rgba(45, 51, 72, 0.1)'};
+  border: 1px solid ${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.08)' : 'rgba(74, 86, 128, 0.08)'};
+  transition: all 0.3s ease;
+  
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${props => props.theme === 'dark' ? '0 8px 16px rgba(0, 0, 0, 0.2)' : '0 8px 16px rgba(45, 51, 72, 0.12)'};
+    transform: translateY(-3px);
+    box-shadow: ${props => props.theme === 'dark' ? '0 8px 16px rgba(0, 0, 0, 0.2)' : '0 8px 16px rgba(45, 51, 72, 0.15)'};
+  }
+  
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 90px;
+    padding: 0.75rem;
+    gap: 0.4rem;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 90px;
+    height: 75px;
+    padding: 0.5rem;
+    gap: 0.3rem;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 360px) {
+    width: 75px;
+    height: 65px;
+    padding: 0.4rem;
+    gap: 0.25rem;
   }
 `;
 
@@ -49,13 +187,40 @@ const SkillIcon = styled.img<{ isBash?: boolean; theme?: string }>`
   height: 40px;
   object-fit: contain;
   ${({ isBash, theme }) => isBash && theme === 'dark' && 'filter: brightness(0) invert(1);'}
+  
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 24px;
+    height: 24px;
+  }
+  
+  @media (max-width: 360px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const SkillName = styled.span`
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+  font-size: 0.8rem;
   font-weight: 500;
+  text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.6rem;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 0.55rem;
+  }
 `;
 
 const skills = [
@@ -116,6 +281,9 @@ const skills = [
 const Skills = () => {
   const { theme } = useTheme();
   
+  // Create duplicated skills array for seamless infinite scroll
+  const duplicatedSkills = [...skills, ...skills];
+  
   return (
     <SkillsSection id="skills">
       <SectionTitle
@@ -127,21 +295,21 @@ const Skills = () => {
       >
         SKILLS
       </SectionTitle>
-      <SkillsGrid>
-        {skills.map((skill, index) => (
-          <SkillCard
-            key={index}
-            theme={theme}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.05 }}
-          >
-            <SkillIcon src={skill.icon} alt={skill.name} isBash={skill.name === 'Bash'} theme={theme} />
-            <SkillName theme={theme}>{skill.name}</SkillName>
-          </SkillCard>
-        ))}
-      </SkillsGrid>
+      <SliderWrapper theme={theme}>
+        <SlideTrack>
+          {duplicatedSkills.map((skill, index) => (
+            <SkillCard key={`${skill.name}-${index}`} theme={theme}>
+              <SkillIcon 
+                src={skill.icon} 
+                alt={skill.name} 
+                isBash={skill.name === 'Bash'} 
+                theme={theme} 
+              />
+              <SkillName theme={theme}>{skill.name}</SkillName>
+            </SkillCard>
+          ))}
+        </SlideTrack>
+      </SliderWrapper>
     </SkillsSection>
   );
 };

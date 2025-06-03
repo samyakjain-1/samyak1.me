@@ -74,6 +74,12 @@ const AppContainer = styled.div`
   min-height: 100vh;
   position: relative;
   z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+
+  @media (max-width: 480px) {
+    padding: 0 0.75rem;
+  }
 
   @media (min-width: 640px) {
     padding: 0 2rem;
@@ -89,6 +95,10 @@ const Nav = styled.nav`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+  }
 
   @media (min-width: 640px) {
     padding: 2rem 0;
@@ -122,6 +132,16 @@ const ProfileImage = styled(motion.img)`
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+  }
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
   }
 `;
 
@@ -249,6 +269,12 @@ const Hero = styled.section`
   position: relative;
   gap: 0.2rem;
 
+  @media (max-width: 480px) {
+    padding: 0 0.75rem;
+    gap: 0.1rem;
+    min-height: calc(100vh - 80px);
+  }
+
   @media (min-width: 640px) {
     gap: 0.4rem;
   }
@@ -267,6 +293,12 @@ const HeroTitle = styled(motion.h1)`
   flex-wrap: wrap;
   gap: 0.25rem;
   padding: 0 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+    gap: 0.1rem;
+  }
 
   @media (min-width: 480px) {
     font-size: 2.5rem;
@@ -305,6 +337,11 @@ const HeroSubtitle = styled(motion.h2)`
   margin: 0 0 0.5rem 0;
   font-weight: 700;
 
+  @media (max-width: 480px) {
+    font-size: 1.25rem;
+    margin: 0 0 0.3rem 0;
+  }
+
   @media (min-width: 640px) {
     font-size: 2.5rem;
     margin: 0 0 0.75rem 0;
@@ -318,6 +355,13 @@ const HeroText = styled(motion.p)`
   line-height: 1.6;
   max-width: 800px;
   text-align: center;
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    margin: 0.3rem auto 0 auto;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
 
   @media (min-width: 640px) {
     font-size: 1.25rem;

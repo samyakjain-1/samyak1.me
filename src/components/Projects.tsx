@@ -36,6 +36,11 @@ const ProjectsGrid = styled.div`
   padding: 0 1rem;
   justify-content: center;
 
+  @media (max-width: 480px) {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
   @media (min-width: 640px) {
     gap: 2rem;
   }
@@ -43,7 +48,15 @@ const ProjectsGrid = styled.div`
   & > * {
     flex: 1 1 300px;
     max-width: 400px;
-    min-width: 300px;
+    min-width: 280px;
+  }
+
+  @media (max-width: 480px) {
+    & > * {
+      flex: 1 1 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
   }
 `;
 
@@ -59,6 +72,11 @@ const ProjectCard = styled(motion.div)`
   cursor: pointer;
   box-shadow: ${props => props.theme === 'dark' ? '0 4px 6px rgba(0, 0, 0, 0.1)' : '0 4px 6px rgba(45, 51, 72, 0.08)'};
 
+  @media (max-width: 480px) {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+
   @media (min-width: 640px) {
     padding: 2.5rem;
   }
@@ -67,6 +85,12 @@ const ProjectCard = styled(motion.div)`
     transform: translateY(-8px);
     box-shadow: ${props => props.theme === 'dark' ? '0 12px 24px rgba(0, 0, 0, 0.2)' : '0 12px 24px rgba(45, 51, 72, 0.12)'};
   }
+
+  @media (max-width: 480px) {
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
 `;
 
 const ProjectTitle = styled.h3`
@@ -74,6 +98,11 @@ const ProjectTitle = styled.h3`
   font-weight: 700;
   margin-bottom: 1rem;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#2D3348'};
+
+  @media (max-width: 480px) {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
 
   @media (min-width: 640px) {
     font-size: 2rem;
