@@ -96,28 +96,32 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled(motion.a)`
-  font-size: 1.5rem;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
-  color: #91a1d1;
   text-decoration: none;
   position: relative;
   z-index: 20;
-  padding: 0.5rem;
+  padding: 0.1rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0.3rem;
-    left: 0.5rem;
-    background-color: #91a1d1;
-    transition: width 0.3s ease;
+  &:hover {
+    background-color: rgba(145, 161, 209, 0.1);
   }
+`;
 
-  &:hover::after {
-    width: calc(100% - 1rem);
+const ProfileImage = styled(motion.img)`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 
@@ -610,7 +614,13 @@ function AppContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            SJ.
+            <ProfileImage
+              src="/profile.png"
+              alt="Samyak Jain Profile"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
           </Logo>
           <MenuButton
             theme={theme}
