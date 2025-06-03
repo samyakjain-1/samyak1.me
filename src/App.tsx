@@ -37,7 +37,9 @@ const GlobalWrapper = styled.div`
   background-position: center center;
   min-height: 100vh;
   width: 100%;
+  max-width: 100vw;
   position: relative;
+  overflow-x: hidden !important;
 `;
 
 const BackgroundLayer = styled.div`
@@ -63,6 +65,7 @@ const ContentLayer = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden;
 `;
 
 const AppContainer = styled.div`
@@ -425,6 +428,9 @@ const SocialLink = styled(motion.a)`
 
 const SectionWrapper = styled(motion.div)`
   opacity: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 `;
 
 const BackToTop = styled(motion.button)`

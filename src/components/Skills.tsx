@@ -7,6 +7,8 @@ const SkillsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
   
   @media (max-width: 768px) {
     padding: 3rem 0;
@@ -33,8 +35,8 @@ const SectionTitle = styled(motion.h2)`
 
 const SliderWrapper = styled.div`
   width: 100%;
-  max-width: 1200px;
-  overflow: hidden;
+  max-width: 100vw;
+  overflow: hidden !important;
   position: relative;
   margin: 0 auto;
   
@@ -74,12 +76,20 @@ const SliderWrapper = styled.div`
   }
 `;
 
+const SlideTrackContainer = styled.div`
+  overflow: hidden !important;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+`;
+
 const SlideTrack = styled.div`
   display: flex;
   gap: 1rem;
   width: calc((180px + 1rem) * 26);
   animation: scroll 45s linear infinite;
   padding: 1rem 0;
+  will-change: transform;
   
   @keyframes scroll {
     0% { 
@@ -296,19 +306,21 @@ const Skills = () => {
         SKILLS
       </SectionTitle>
       <SliderWrapper theme={theme}>
-        <SlideTrack>
-          {duplicatedSkills.map((skill, index) => (
-            <SkillCard key={`${skill.name}-${index}`} theme={theme}>
-              <SkillIcon 
-                src={skill.icon} 
-                alt={skill.name} 
-                isBash={skill.name === 'Bash'} 
-                theme={theme} 
-              />
-              <SkillName theme={theme}>{skill.name}</SkillName>
-            </SkillCard>
-          ))}
-        </SlideTrack>
+        <SlideTrackContainer>
+          <SlideTrack>
+            {duplicatedSkills.map((skill, index) => (
+              <SkillCard key={`${skill.name}-${index}`} theme={theme}>
+                <SkillIcon 
+                  src={skill.icon} 
+                  alt={skill.name} 
+                  isBash={skill.name === 'Bash'} 
+                  theme={theme} 
+                />
+                <SkillName theme={theme}>{skill.name}</SkillName>
+              </SkillCard>
+            ))}
+          </SlideTrack>
+        </SlideTrackContainer>
       </SliderWrapper>
     </SkillsSection>
   );
