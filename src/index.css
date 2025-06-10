@@ -11,12 +11,15 @@ html, body {
   padding: 0;
   min-height: 100vh;
   width: 100%;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 #root {
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -24,7 +27,8 @@ body {
   background-color: #23283C;
   color: #CCCDFA;
   line-height: 1.6;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 a {
@@ -45,6 +49,7 @@ button {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 a {
@@ -60,6 +65,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  max-width: 100%;
 }
 
 h1 {
@@ -102,9 +108,15 @@ button:focus-visible {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Transition for theme changes */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Prevent horizontal scrolling globally */
+* {
+  max-width: 100%;
 }

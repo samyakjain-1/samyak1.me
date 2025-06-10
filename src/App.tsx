@@ -39,7 +39,8 @@ const GlobalWrapper = styled.div`
   width: 100%;
   max-width: 100vw;
   position: relative;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 const BackgroundLayer = styled.div`
@@ -72,39 +73,114 @@ const AppContainer = styled.div`
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 3rem 1rem 0;
   color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
   min-height: 100vh;
   position: relative;
   z-index: 1;
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     padding: 0 0.75rem;
+    max-width: 100vw;
   }
 
   @media (min-width: 640px) {
-    padding: 0 2rem;
+    padding: 3rem 2rem 0;
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem;
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
+  padding: 0.5rem 1.5rem;
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: auto;
   margin: 0 auto;
+  background: ${props => props.theme === 'dark' 
+    ? 'rgba(35, 40, 60, 0.2)' 
+    : 'rgba(248, 249, 252, 0.2)'
+  };
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid ${props => props.theme === 'dark' 
+    ? 'rgba(204, 205, 250, 0.25)' 
+    : 'rgba(74, 86, 128, 0.25)'
+  };
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  transition: all 0.3s ease;
+  overflow: hidden;
 
-  @media (max-width: 480px) {
-    padding: 0.75rem;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: ${props => props.theme === 'dark'
+      ? 'linear-gradient(to bottom right, rgba(145, 161, 209, 0.1) 0%, transparent 40%, transparent 60%, rgba(145, 161, 209, 0.1) 100%)'
+      : 'linear-gradient(to bottom right, rgba(74, 86, 128, 0.1) 0%, transparent 40%, transparent 60%, rgba(74, 86, 128, 0.1) 100%)'
+    };
+    transform: rotate(25deg);
+    z-index: -1;
   }
 
-  @media (min-width: 640px) {
-    padding: 2rem 0;
+  @media (max-width: 640px) {
+    display: none;
+  }
+`;
+
+const MobileNavContainer = styled.div`
+  display: none;
+  
+  @media (max-width: 640px) {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    
+    @media (max-width: 480px) {
+      padding: 0.75rem;
+    }
+  }
+`;
+
+const LogoContainer = styled.div`
+  position: fixed;
+  top: 1.5rem;
+  left: 10%;
+  right: auto;
+  transform: none;
+  z-index: 100;
+  
+  @media (max-width: 640px) {
+    position: fixed;
+    top: 0.75rem;
+    left: 1rem;
+    transform: none;
+    z-index: 20;
+  }
+`;
+
+const MobileMenuButtonContainer = styled.div`
+  display: none;
+  
+  @media (max-width: 640px) {
+    display: block;
+    position: fixed;
+    top: 2.1rem;
+    right: 1rem;
+    z-index: 20;
   }
 `;
 
@@ -116,22 +192,72 @@ const Logo = styled(motion.a)`
   text-decoration: none;
   position: relative;
   z-index: 20;
-  padding: 0.1rem;
+  padding: 0.15rem;
   border-radius: 50%;
   transition: all 0.3s ease;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+
+  &::before {
+    display: none;
+  }
 
   &:hover {
-    background-color: rgba(145, 161, 209, 0.1);
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 640px) {
+    padding: 0.1rem;
+    
+    &:hover {
+      background-color: rgba(145, 161, 209, 0.1);
+      transform: none;
+    }
+  }
+`;
+
+const MenuButton = styled(motion.button)`
+  display: none;
+  
+  @media (max-width: 640px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 20;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #91a1d1;
+      background-color: ${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.1)' : 'rgba(74, 86, 128, 0.1)'};
+    }
   }
 `;
 
 const ProfileImage = styled(motion.img)`
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   object-fit: cover;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 1px solid ${props => props.theme === 'dark' 
+    ? 'rgba(204, 205, 250, 0.35)' 
+    : 'rgba(74, 86, 128, 0.35)'
+  };
+  z-index: 1;
+  background: transparent;
+  mix-blend-mode: ${props => props.theme === 'dark' ? 'luminosity' : 'darken'};
+  filter: ${props => props.theme === 'dark' ? 'contrast(1.05) brightness(0.9)' : 'contrast(1.05)'};
 
   &:hover {
     transform: scale(1.05);
@@ -140,52 +266,43 @@ const ProfileImage = styled(motion.img)`
   @media (max-width: 480px) {
     width: 50px;
     height: 50px;
+    border: 2px solid transparent;
+    mix-blend-mode: normal;
+    filter: none;
   }
 
   @media (max-width: 768px) {
     width: 60px;
     height: 60px;
   }
-`;
 
-const MenuButton = styled(motion.button)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 20;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #91a1d1;
-    background-color: ${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.1)' : 'rgba(74, 86, 128, 0.1)'};
-  }
-
-  @media (min-width: 640px) {
-    display: none;
+  @media (max-width: 640px) {
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+    mix-blend-mode: normal;
+    filter: none;
   }
 `;
 
 const NavLinks = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
-  right: ${props => props.isOpen ? '0' : '-100%'};
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-color: ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  transition: right 0.3s ease;
-  z-index: 10;
+  transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(100%)'};
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
 
   @media (min-width: 640px) {
     position: static;
@@ -193,7 +310,9 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
     width: auto;
     flex-direction: row;
     background-color: transparent;
-    gap: 2rem;
+    gap: 1.5rem;
+    transform: none;
+    transition: none;
   }
 `;
 
@@ -203,9 +322,20 @@ const NavLink = styled(motion.a)`
   font-weight: 500;
   position: relative;
   font-size: 1.25rem;
+  padding: 0.3rem 0.5rem;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  z-index: 1001;
+
+  @media (max-width: 640px) {
+    color: ${props => props.theme === 'dark' ? '#FFFFFF' : '#000000'};
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    font-weight: 600;
+  }
 
   @media (min-width: 640px) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   &::after {
@@ -213,18 +343,52 @@ const NavLink = styled(motion.a)`
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -4px;
-    left: 0;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
     transition: width 0.3s ease;
   }
 
+  @media (max-width: 640px) {
+    &::after {
+      bottom: -4px;
+      left: 0;
+      transform: none;
+    }
+  }
+
+  &:hover {
+    background-color: ${props => props.theme === 'dark' 
+      ? 'rgba(204, 205, 250, 0.1)' 
+      : 'rgba(74, 86, 128, 0.1)'
+    };
+  }
+
+  @media (max-width: 640px) {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
   &:hover::after {
-    width: 100%;
+    width: 70%;
+  }
+
+  @media (max-width: 640px) {
+    &:hover::after {
+      width: 100%;
+    }
   }
 
   &.active::after {
-    width: 100%;
+    width: 70%;
+  }
+
+  @media (max-width: 640px) {
+    &.active::after {
+      width: 100%;
+    }
   }
 `;
 
@@ -240,22 +404,41 @@ const ThemeToggle = styled(motion.button)`
   font-size: 1.25rem;
   transition: all 0.3s ease;
   border-radius: 8px;
+  z-index: 1001;
+
+  @media (max-width: 640px) {
+    color: ${props => props.theme === 'dark' ? '#FFFFFF' : '#000000'};
+    font-size: 2rem;
+    padding: 1rem;
+  }
 
   &:hover {
     color: #91a1d1;
-    background-color: ${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.1)' : 'rgba(74, 86, 128, 0.1)'};
+    background-color: ${props => props.theme === 'dark' 
+      ? 'rgba(204, 205, 250, 0.1)' 
+      : 'rgba(74, 86, 128, 0.1)'
+    };
   }
 
   @media (min-width: 640px) {
     margin-left: 0.5rem;
+    font-size: 1.1rem;
   }
 `;
 
 const HeroContainer = styled.div`
   position: relative;
   width: 100%;
+  max-width: 100%;
   min-height: calc(100vh - 100px);
   margin-bottom: 0.5rem;
+  padding-top: 4rem;
+  overflow-x: hidden;
+
+  @media (max-width: 640px) {
+    padding-top: 5rem;
+    min-height: calc(100vh - 80px);
+  }
 `;
 
 const Hero = styled.section`
@@ -271,11 +454,13 @@ const Hero = styled.section`
   padding: 0 1rem;
   position: relative;
   gap: 0.2rem;
+  overflow-x: hidden;
 
   @media (max-width: 480px) {
     padding: 0 0.75rem;
     gap: 0.1rem;
     min-height: calc(100vh - 80px);
+    max-width: 100%;
   }
 
   @media (min-width: 640px) {
@@ -429,7 +614,7 @@ const SocialLink = styled(motion.a)`
 const SectionWrapper = styled(motion.div)`
   opacity: 0;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   overflow-x: hidden;
 `;
 
@@ -474,6 +659,112 @@ const ScrollProgress = styled(motion.div)`
   box-shadow: 0 0 10px ${props => props.theme === 'dark' ? 'rgba(145, 161, 209, 0.5)' : 'rgba(74, 86, 128, 0.5)'};
 `;
 
+const LoadingScreen = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const LoadingDots = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
+    animation: loadingBounce 1.4s ease-in-out infinite both;
+    
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+    
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+    
+    &:nth-child(3) {
+      animation-delay: 0s;
+    }
+  }
+  
+  @keyframes loadingBounce {
+    0%, 80%, 100% {
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+`;
+
+const LoadingText = styled.p`
+  color: ${props => props.theme === 'dark' ? '#CCCDFA' : '#4A5680'};
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-weight: 500;
+`;
+
+const MobileNav = styled.nav<{ isOpen: boolean }>`
+  display: none;
+  
+  @media (max-width: 640px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: ${props => props.theme === 'dark' ? '#23283C' : '#F8F9FC'};
+    z-index: 500;
+    transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(100%)'};
+    transition: transform 0.3s ease;
+  }
+`;
+
+const CloseButton = styled(motion.button)`
+  position: absolute;
+  top: 2.1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: ${props => props.theme === 'dark' ? '#FFFFFF' : '#000000'};
+  font-size: 1.75rem;
+  cursor: pointer;
+  z-index: 501;
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #91a1d1;
+    background-color: ${props => props.theme === 'dark' ? 'rgba(204, 205, 250, 0.1)' : 'rgba(74, 86, 128, 0.1)'};
+  }
+`;
+
+const MobileLinkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 2rem;
+`;
+
 function AppContent() {
   const { theme, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('');
@@ -483,6 +774,7 @@ function AppContent() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Floating elements configuration
   const floatingElements = [
@@ -541,6 +833,63 @@ function AppContent() {
     
     setAge(age);
 
+    // Invisible scroll to fix layout calculation issues
+    const fixLayoutScroll = () => {
+      // Store original scroll behavior
+      const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+      
+      // Temporarily disable smooth scrolling for instant movement
+      document.documentElement.style.scrollBehavior = 'auto';
+      
+      // Force a layout recalculation
+      document.body.offsetHeight;
+      
+      // Get the full page height
+      const maxHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+      
+      // Scroll to bottom instantly (invisible to user due to loading screen)
+      window.scrollTo({
+        top: maxHeight,
+        left: 0,
+        behavior: 'auto'
+      });
+      
+      // Small delay then scroll back to top
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'auto'
+        });
+        
+        // Restore original settings
+        setTimeout(() => {
+          document.documentElement.style.scrollBehavior = originalScrollBehavior;
+        }, 10);
+      }, 10);
+    };
+
+    // Run the fix and hide loading screen
+    const initializePage = async () => {
+      // Run layout fixes
+      setTimeout(fixLayoutScroll, 50);
+      setTimeout(fixLayoutScroll, 200);
+      setTimeout(fixLayoutScroll, 500);
+      
+      // Hide loading screen after fixes are complete
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 800);
+    };
+
+    initializePage();
+
     const handleScroll = () => {
       // Calculate scroll progress
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -563,7 +912,10 @@ function AppContent() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -614,6 +966,21 @@ function AppContent() {
   return (
     <GlobalWrapper theme={theme}>
       <SEO />
+      {isLoading && (
+        <LoadingScreen
+          theme={theme}
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <LoadingDots theme={theme}>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+          </LoadingDots>
+          <LoadingText theme={theme}>Loading...</LoadingText>
+        </LoadingScreen>
+      )}
       <ScrollProgress
         theme={theme}
         style={{ scaleX: scrollProgress }}
@@ -657,9 +1024,77 @@ function AppContent() {
         />
       ))}
       <ContentLayer>
-        <Nav theme={theme}>
+        <MobileNavContainer>
+          <MobileMenuButtonContainer>
+            <MenuButton
+              theme={theme}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <FiX /> : <FiMenu />}
+            </MenuButton>
+          </MobileMenuButtonContainer>
+        </MobileNavContainer>
+        
+        <MobileNav theme={theme} isOpen={isMenuOpen}>
+          <CloseButton
+            theme={theme}
+            onClick={closeMenu}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <FiX />
+          </CloseButton>
+          <MobileLinkContainer>
+            <NavLink
+              href="#projects"
+              className={activeSection === 'projects' ? 'active' : ''}
+              theme={theme}
+              onClick={closeMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              projects
+            </NavLink>
+            <NavLink
+              href="#skills"
+              className={activeSection === 'skills' ? 'active' : ''}
+              theme={theme}
+              onClick={closeMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              skills
+            </NavLink>
+            <NavLink
+              href="#contact"
+              className={activeSection === 'contact' ? 'active' : ''}
+              theme={theme}
+              onClick={closeMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              contact
+            </NavLink>
+            <ThemeToggle
+              onClick={toggleTheme}
+              theme={theme}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {theme === 'dark' ? <FiSun /> : <FiMoon />}
+            </ThemeToggle>
+          </MobileLinkContainer>
+        </MobileNav>
+        
+        <LogoContainer>
           <Logo
             href="#"
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -672,18 +1107,16 @@ function AppContent() {
               transition={{ duration: 0.5 }}
             />
           </Logo>
-          <MenuButton
-            theme={theme}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <FiX /> : <FiMenu />}
-          </MenuButton>
+        </LogoContainer>
+        <Nav theme={theme}>
           <NavLinks isOpen={isMenuOpen} theme={theme}>
             <NavLink
               href="#projects"
               className={activeSection === 'projects' ? 'active' : ''}
               theme={theme}
               onClick={closeMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               projects
             </NavLink>
@@ -692,6 +1125,8 @@ function AppContent() {
               className={activeSection === 'skills' ? 'active' : ''}
               theme={theme}
               onClick={closeMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               skills
             </NavLink>
@@ -700,6 +1135,8 @@ function AppContent() {
               className={activeSection === 'contact' ? 'active' : ''}
               theme={theme}
               onClick={closeMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               contact
             </NavLink>
