@@ -192,18 +192,37 @@ const Logo = styled(motion.a)`
   text-decoration: none;
   position: relative;
   z-index: 20;
-  padding: 0.15rem;
+  padding: 0.4rem;
   border-radius: 50%;
   transition: all 0.3s ease;
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: none;
+  background: ${props => props.theme === 'dark' 
+    ? 'rgba(35, 40, 60, 0.02)' 
+    : 'rgba(248, 249, 252, 0.02)'
+  };
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid ${props => props.theme === 'dark' 
+    ? 'rgba(204, 205, 250, 0.1)' 
+    : 'rgba(74, 86, 128, 0.1)'
+  };
+  border-radius: 50%;
   box-shadow: none;
   overflow: visible;
 
   &::before {
-    display: none;
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: ${props => props.theme === 'dark'
+      ? 'linear-gradient(to bottom right, rgba(145, 161, 209, 0.1) 0%, transparent 40%, transparent 60%, rgba(145, 161, 209, 0) 100%)'
+      : 'linear-gradient(to bottom right, rgba(74, 86, 128, 0.1) 0%, transparent 40%, transparent 60%, rgba(74, 86, 128, 0) 100%)'
+    };
+    transform: rotate(25deg);
+    z-index: -1;
+    border-radius: 50%;
   }
 
   &:hover {
@@ -211,7 +230,16 @@ const Logo = styled(motion.a)`
   }
 
   @media (max-width: 640px) {
-    padding: 0.1rem;
+    padding: 0.5rem;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    
+    &::before {
+      display: none;
+    }
     
     &:hover {
       background-color: rgba(145, 161, 209, 0.1);
@@ -245,19 +273,16 @@ const MenuButton = styled(motion.button)`
 `;
 
 const ProfileImage = styled(motion.img)`
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   transition: all 0.3s ease;
-  border: 1px solid ${props => props.theme === 'dark' 
-    ? 'rgba(204, 205, 250, 0.35)' 
-    : 'rgba(74, 86, 128, 0.35)'
-  };
+  border: none;
   z-index: 1;
   background: transparent;
-  mix-blend-mode: ${props => props.theme === 'dark' ? 'luminosity' : 'darken'};
-  filter: ${props => props.theme === 'dark' ? 'contrast(1.05) brightness(0.9)' : 'contrast(1.05)'};
+  mix-blend-mode: plus-lighter;
+  filter: ${props => props.theme === 'dark' ? 'contrast(1.1) brightness(0.95)' : 'contrast(1.1)'};
 
   &:hover {
     transform: scale(1.05);
@@ -266,7 +291,7 @@ const ProfileImage = styled(motion.img)`
   @media (max-width: 480px) {
     width: 50px;
     height: 50px;
-    border: 2px solid transparent;
+    border: none;
     mix-blend-mode: normal;
     filter: none;
   }
@@ -279,7 +304,7 @@ const ProfileImage = styled(motion.img)`
   @media (max-width: 640px) {
     width: 80px;
     height: 80px;
-    border: 2px solid transparent;
+    border: none;
     mix-blend-mode: normal;
     filter: none;
   }
