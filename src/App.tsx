@@ -10,6 +10,7 @@ import TypewriterText from './components/TypewriterText';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 import ParticlesBackground from './components/ParticlesBackground';
+import LiquidGlassSwitcher from './components/LiquidGlassSwitcher';
 
 const FloatingElement = styled(motion.div)`
   position: fixed;
@@ -96,7 +97,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  padding: 6px 10px 8px;
   position: fixed;
   top: 1.5rem;
   left: 50%;
@@ -104,36 +105,62 @@ const Nav = styled.nav`
   transform: translateX(-50%);
   width: auto;
   margin: 0 auto;
-  background: ${props => props.theme === 'dark' 
-    ? 'rgba(35, 40, 60, 0.2)' 
-    : 'rgba(248, 249, 252, 0.2)'
+  height: 50px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 99em;
+  background-color: ${props => props.theme === 'dark' 
+    ? 'rgba(187, 187, 188, 0.12)' 
+    : 'rgba(187, 187, 188, 0.12)'
   };
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid ${props => props.theme === 'dark' 
-    ? 'rgba(204, 205, 250, 0.25)' 
-    : 'rgba(74, 86, 128, 0.25)'
-  };
-  border-radius: 20px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  transition: all 0.3s ease;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: ${props => props.theme === 'dark'
-      ? 'linear-gradient(to bottom right, rgba(145, 161, 209, 0.1) 0%, transparent 40%, transparent 60%, rgba(145, 161, 209, 0.1) 100%)'
-      : 'linear-gradient(to bottom right, rgba(74, 86, 128, 0.1) 0%, transparent 40%, transparent 60%, rgba(74, 86, 128, 0.1) 100%)'
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  box-shadow: 
+    inset 0 0 0 1px ${props => props.theme === 'dark' 
+      ? 'rgba(255, 255, 255, 0.1)' 
+      : 'rgba(255, 255, 255, 0.1)'
+    },
+    inset 1.8px 3px 0px -2px ${props => props.theme === 'dark' 
+      ? 'rgba(255, 255, 255, 0.27)' 
+      : 'rgba(255, 255, 255, 0.9)'
+    }, 
+    inset -2px -2px 0px -2px ${props => props.theme === 'dark' 
+      ? 'rgba(255, 255, 255, 0.24)' 
+      : 'rgba(255, 255, 255, 0.8)'
+    }, 
+    inset -3px -8px 1px -6px ${props => props.theme === 'dark' 
+      ? 'rgba(255, 255, 255, 0.18)' 
+      : 'rgba(255, 255, 255, 0.6)'
+    }, 
+    inset -0.3px -1px 4px 0px ${props => props.theme === 'dark' 
+      ? 'rgba(0, 0, 0, 0.24)' 
+      : 'rgba(0, 0, 0, 0.12)'
+    }, 
+    inset -1.5px 2.5px 0px -2px ${props => props.theme === 'dark' 
+      ? 'rgba(0, 0, 0, 0.4)' 
+      : 'rgba(0, 0, 0, 0.2)'
+    }, 
+    inset 0px 3px 4px -2px ${props => props.theme === 'dark' 
+      ? 'rgba(0, 0, 0, 0.4)' 
+      : 'rgba(0, 0, 0, 0.2)'
+    }, 
+    inset 2px -6.5px 1px -4px ${props => props.theme === 'dark' 
+      ? 'rgba(0, 0, 0, 0.2)' 
+      : 'rgba(0, 0, 0, 0.1)'
+    }, 
+    0px 1px 5px 0px ${props => props.theme === 'dark' 
+      ? 'rgba(0, 0, 0, 0.2)' 
+      : 'rgba(0, 0, 0, 0.1)'
+    }, 
+    0px 6px 16px 0px ${props => props.theme === 'dark' 
+      ? 'rgba(0, 0, 0, 0.16)' 
+      : 'rgba(0, 0, 0, 0.08)'
     };
-    transform: rotate(25deg);
-    z-index: -1;
-  }
+  z-index: 100;
+  transition: 
+    background-color 400ms cubic-bezier(1, 0.0, 0.4, 1),
+    box-shadow 400ms cubic-bezier(1, 0.0, 0.4, 1);
+  overflow: hidden;
 
   @media (max-width: 640px) {
     display: none;
@@ -1165,16 +1192,9 @@ function AppContent() {
             >
               contact
             </NavLink>
-            <ThemeToggle
-              onClick={toggleTheme}
-              theme={theme}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {theme === 'dark' ? <FiSun /> : <FiMoon />}
-            </ThemeToggle>
           </NavLinks>
         </Nav>
+        <LiquidGlassSwitcher />
         <AppContainer theme={theme}>
           <HeroContainer>
             <Hero>
