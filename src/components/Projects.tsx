@@ -179,10 +179,25 @@ const IconLink = styled(motion.a)`
 
 const projects = [
   {
+    title: 'SmartRepos',
+    description: 'A modern platform for discovering trending GitHub repositories with personalized AI-powered insights and recommendations. Features repository bookmarking, AI analysis, interactive chat, and personalized learning guides built with the Modelence framework.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Modelence', 'MongoDB', 'GPT-4o', 'GitHub API'],
+    github: 'https://github.com/samyakjain-1/SmartRepos',
+    demo: 'https://smartrepos.onrender.com'
+  },
+  {
+    title: 'UW Madison Live Parking Map',
+    description: 'A live, interactive map helping users find available parking at UW-Madison campus. Features real-time data scraping, destination search with autocomplete, smart filtering by proximity, and color-coded availability markers.',
+    tech: ['React', 'Google Maps API', 'Flask', 'Python', 'BeautifulSoup', 'Web Scraping'],
+    github: 'https://github.com/samyakjain-1/uw-parking',
+    demo: 'https://uw-parking.onrender.com'
+  },
+  {
     title: 'UW-Madison Course Insights Platform',
     description: 'A modern, AI-powered web platform that helps UW-Madison students explore courses through real student experiences collected from Reddit. Features smart summaries, sentiment analysis, and course discovery tools.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Python', 'AI/LLM', 'Reddit API'],
-    demo: 'https://courseinsight.vercel.app'
+    demo: 'https://courseinsight.vercel.app',
+    github: 'https://github.com/samyakjain-1/courseinsight'
   },
   {
     title: 'IPL Match Visualizer',
@@ -204,13 +219,6 @@ const projects = [
     demo: 'https://samyakjain-1.github.io/chatbot',
     github: 'https://github.com/samyakjain-1/chatbot'
   },
-  {
-    title: 'Personal Website',
-    description: 'My personal portfolio website showcasing my background, skills, and projects in a clean and structured format. Built with modern web technologies and features a responsive design with dark/light mode.',
-    tech: ['React', 'TypeScript', 'Emotion', 'Framer Motion'],
-    demo: 'https://samyak1.me',
-    github: 'https://github.com/samyakjain-1/website'
-  }
 ];
 
 const Projects = () => {
