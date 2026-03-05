@@ -821,7 +821,7 @@ function AppContent() {
   const { theme, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [age, setAge] = useState(0);
+  //const [age, setAge] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
@@ -883,7 +883,7 @@ function AppContent() {
       age--;
     }
     
-    setAge(age);
+    //setAge(age);
 
     // Invisible scroll to fix layout calculation issues
     const fixLayoutScroll = () => {
