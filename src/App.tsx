@@ -1222,7 +1222,7 @@ function AppContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
               >
-                I'm a {age}-year-old junior student at UW - Madison studying Computer Science. I am passionate about machine learning, AI, LLMs, and computer vision. I love solving problems and building efficient systems.
+                I'm a rising senior studying Computer Science and Data Science at UW-Madison. I love building AI-powered applications with LLMs, vector search, and scalable backend systems.
               </HeroText>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
