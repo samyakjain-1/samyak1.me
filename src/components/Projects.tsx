@@ -193,11 +193,10 @@ const projects = [
     demo: 'https://uw-parking.onrender.com'
   },
   {
-    title: 'UW-Madison Course Insights Platform',
-    description: 'A modern, AI-powered web platform that helps UW-Madison students explore courses through real student experiences collected from Reddit. Features smart summaries, sentiment analysis, and course discovery tools.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Python', 'AI/LLM', 'Reddit API'],
-    demo: 'https://courseinsight.vercel.app',
-    github: 'https://github.com/samyakjain-1/courseinsight'
+    title: 'arXiv Paper Digest',
+    description: 'AI-powered research paper explorer that simplifies arXiv abstracts and recommends related papers using vector embeddings and semantic search.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Modelence', 'MongoDB', 'OpenAI', 'Vector Search', 'arXiv API'],
+    github: 'https://github.com/samyakjain-1/papers-digest'
   },
   {
     title: 'IPL Match Visualizer',
